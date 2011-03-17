@@ -1,53 +1,14 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
-    <!-- Entry Content Template-->
-    <DataTemplate x:Key="EntryTemplate">
-        <Border BorderBrush="AliceBlue" BorderThickness="1" CornerRadius="10">
-            <!--<Expander HeaderTemplate="{DynamicResource PatientHeaderTemplate}" 
-                  Header="{Binding}" IsTabStop="False" HorizontalAlignment="Left" 
-                  IsEnabled="True" ExpandDirection="Down">
-                <Grid Margin="5,5,5,5">
-                    <Grid.ColumnDefinitions>
-                        <ColumnDefinition />
-                        <ColumnDefinition />
-                    </Grid.ColumnDefinitions>
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Text="{Binding Path=GestationalAge}" 
-                           Grid.Column="0" Grid.Row="0" />
-                    <TextBlock Text="{Binding Path=BirthDate.Year}" 
-                           Grid.Column="1" Grid.Row="0" />
-                    <TextBlock Text="{Binding Path=BirthHeadCircumference}" 
-                           Grid.Column="0" Grid.Row="1" />
-                    <TextBlock Text="{Binding Path=BirthLength}" 
-                           Grid.Column="1" Grid.Row="1" />
-                </Grid>
-            </Expander>-->
-        </Border>
-    </DataTemplate>
+
     <!-- Directory Content Template -->
     <HierarchicalDataTemplate x:Key="DirectoryTemplate"
-    ItemsSource="{Binding Directory}"
-    ItemTemplate="{StaticResource EntryTemplate}">
-        <Border x:Name="DoctorTemplateBorder" BorderBrush="AliceBlue" 
-            BorderThickness="1" CornerRadius="10" >
-            <Expander x:Name="DirectoryTemplateExpander" 
-                  HeaderTemplate="{DynamicResource DoctorHeaderTemplate}" 
-                  Header="{Binding}" IsTabStop="False"  
-                  HorizontalAlignment="Left" IsEnabled="True" 
-                  ExpandDirection="Down">
-                <Grid Margin="5,5,5,5">
-                    <Grid.RowDefinitions>
-                        <RowDefinition/>
-                        <RowDefinition/>
-                    </Grid.RowDefinitions>
-                    <TextBlock Grid.Row="0" Text="{Binding Path=Name}" />
-                    <TextBlock Grid.Row="1" Text="Directory" />
-                </Grid>
-            </Expander>
-        </Border>
+                                ItemsSource="{Binding Path=Entries}"
+                                >
+        <StackPanel Orientation="Horizontal">
+            <CheckBox IsChecked="{Binding Path=IsIncluded}" Margin="5,0" />
+            <TextBlock Text="{Binding Path=Name}" />
+        </StackPanel>
     </HierarchicalDataTemplate>
 
 

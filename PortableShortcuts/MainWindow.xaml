@@ -4,7 +4,7 @@
         xmlns:c="clr-namespace:PortableShortcuts"
         Title="MainWindow" Height="350" Width="525">
     <Grid DataContext="{Binding}">
-        <TreeView ItemTemplate="{StaticResource DirectoryTemplate}" Height="287" HorizontalAlignment="Left" Margin="12,12,0,0" Name="AllAppsTreeView" VerticalAlignment="Top" Width="479" >
+        <TreeView ItemTemplate="{StaticResource DirectoryTemplate}" ItemsSource="{Binding}" Height="287" HorizontalAlignment="Left" Margin="12,12,0,0" Name="AllAppsTreeView" VerticalAlignment="Top" Width="479" >
             <TreeView.DataContext>
                 <Binding Source="{c:Directory Path=\\d\\bin}"/>
             </TreeView.DataContext>

@@ -25,15 +25,5 @@ namespace PortableShortcuts
             InitializeComponent();
         }
 
-        private Directory _directory;
-        internal Directory Directory
-        {
-            get
-            {
-                if (_directory == null) {
-                }
-                return _directory;
-            }
-        }
     }
 }
