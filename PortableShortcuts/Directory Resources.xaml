@@ -1,0 +1,15 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:PortableShortcuts="clr-namespace:PortableShortcuts" x:Class="PortableShortcuts.Directory_Resources">
+    <PortableShortcuts:ReverseBooleanHiddenConverter x:Key="ReverseBooleanHiddenConverter"/>
+
+    <!-- Directory Content Template -->
+    <HierarchicalDataTemplate x:Key="DirectoryTemplate"
+                                ItemsSource="{Binding Path=Entries}">
+        <StackPanel Orientation="Horizontal">
+            <CheckBox IsChecked="{Binding Path=IsIncluded}" Margin="5,2" Unchecked="RemoveEntry" Checked="AddEntry" Visibility="{Binding Path=IsDirectory, Converter={StaticResource ReverseBooleanHiddenConverter}}"/>
+            <TextBlock Text="{Binding Path=Name}" />
+        </StackPanel>
+    </HierarchicalDataTemplate>
+
+
+</ResourceDictionary>
