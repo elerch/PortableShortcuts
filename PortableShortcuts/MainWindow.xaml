@@ -9,6 +9,11 @@
             <TreeView.DataContext>
                 <Binding Source="{c:Directory Path=\\d\\bin}"/>
             </TreeView.DataContext>
+            <TreeView.ItemContainerStyle>
+                <Style>
+                    <Setter Property="TreeViewItem.IsExpanded" Value="True"/>
+                </Style>
+            </TreeView.ItemContainerStyle>
         </TreeView>
     </StackPanel>
 </Window>
