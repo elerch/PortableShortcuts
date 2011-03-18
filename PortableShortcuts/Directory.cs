@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Windows.Markup;
+using System.ComponentModel;
 
 
 namespace PortableShortcuts
@@ -86,17 +87,31 @@ namespace PortableShortcuts
         public override string ToString() {
             return Path;
         }
+        
     }
 
     /// <summary>
     /// Sub node POCO object.  Note that the Path property is reverted to default behavior.
     /// </summary>
-    internal class DirectoryEntry : Directory
+    internal class DirectoryEntry : Directory, INotifyPropertyChanged
     {
-        public bool IsIncluded { get; set; }
+        private bool _isIncluded;
+        public bool IsIncluded {
+            get { return _isIncluded; }
+            set {
+                if (_isIncluded != value) {
+                    _isIncluded = value;
+                    if (PropertyChanged != null)
+                        PropertyChanged(this,new PropertyChangedEventArgs("IsIncluded"));
+                }
+            }
+        }
+
         public bool IsDirectory { get; set; }
 
         public override string Path { get; set; }
+
+        public event PropertyChangedEventHandler PropertyChanged;
     }
 
 }

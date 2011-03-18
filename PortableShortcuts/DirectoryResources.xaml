@@ -1,5 +1,5 @@
 ﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
-                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:PortableShortcuts="clr-namespace:PortableShortcuts" x:Class="PortableShortcuts.Directory_Resources">
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:PortableShortcuts="clr-namespace:PortableShortcuts" x:Class="PortableShortcuts.DirectoryResources">
     <PortableShortcuts:ReverseBooleanHiddenConverter x:Key="ReverseBooleanHiddenConverter"/>
 
     <!-- Directory Content Template -->

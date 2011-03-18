@@ -25,5 +25,33 @@ namespace PortableShortcuts
             InitializeComponent();
         }
 
+        private void Checked(object sender, RoutedEventArgs e)
+        {
+            ChangeCheckedState(true, AllAppsTreeView.Items);
+        }
+
+        private void Unchecked(object sender, RoutedEventArgs e)
+        {
+            ChangeCheckedState(false, AllAppsTreeView.Items);
+        }
+
+        private static void ChangeCheckedState(bool isChecked, ItemCollection ic) {
+            foreach (var obj in ic) {
+                var dir = obj as DirectoryEntry;
+                if (dir != null) 
+                    ChangeState(isChecked, dir);
+            }
+        }
+
+        private static void ChangeState(bool isChecked, DirectoryEntry dir)
+        {
+            dir.IsIncluded = !dir.IsDirectory && isChecked;
+            foreach (var subDirectory in dir.Entries) {
+                var subDir = subDirectory as DirectoryEntry;
+                if(subDir != null)
+                    ChangeState(isChecked, subDir);
+            }
+        }
+
     }
 }
